@@ -28,29 +28,27 @@
         <button type="submit" class="btn btn-primary mb-2" (click)="calcular()">
           Calcular e Salvar
         </button>
-
+        
         <!-- <div class="form-group mx-sm-3 mb-4">
           <label for="outputResultado" class="sr-only">Resultado</label>
           <input type="number" class="form-control" id="outputResultado" placeholder="Resultado" formControlName="resultado">
         </div> -->
-
+        
       </form>
     </div>
 
     <div class="col-md-4">
+      
 
       <h6>Operações</h6>
-      <ul class="list-group list-group-flush">
-        <li *ngFor="let item of calculosService.calculos" class="list-group-item">
-          <!-- <div class="row">
-            <div class="col-sm-3"> <p> {{ item.valor1 }} </p> </div>
-            <div class="col-sm-3"> <p> {{ item.operacao }} </p> </div>
-            <div class="col-sm-3"> <p> {{ item.valor2 }} </p> </div>
-            <div class="col-sm-3"> <p> {{ item.resultado }} </p> </div>
-          </div> -->
-          <p> v1 = {{ item.valor1 }} | op = {{ item.operacao }} |  v2 = {{ item.valor2 }} | Result = {{ item.resultado }} </p>
-        </li>
-      </ul>
+      <li *ngFor="let item of calculosService.calculos" class="list-group-item list-group-item-action">
+        <ul class="list-group list-group-horizontal ">
+          <li class="list-group-item"> {{ item.valor1 }} </li>
+          <li class="list-group-item"> {{ item.operacao }} </li>
+          <li class="list-group-item"> {{ item.valor2 }} </li>
+          <li class="list-group-item">  = {{ item.resultado }} </li>
+        </ul>
+      </li>
 
     </div>
 
