@@ -5,55 +5,51 @@
       <h6>Calculadora</h6>
       <form class="form-inline" [formGroup]="formCalculo">
 
-        <div class="form-group mx-sm-3 mb-2">
+        <div class="form-group mx-sm-3 mb-4">
           <label for="inputNumero1" class="sr-only">Num 1</label>
-          <input type="number" class="form-control" id="inputNumero1" placeholder="Numero 1" formControlName="num1">
+          <input type="number" class="form-control" id="inputNumero1" placeholder="Numero 1" formControlName="valor1">
         </div>
 
-        <div class="form-group mx-sm-3 mb-2">
+        <div class="form-group mx-sm-3 mb-4">
           <select id="inputState" class="form-control" formControlName="operacao">
             <option selected>Operação...</option>
-            <option>+</option>
-            <option>-</option>
-            <option>/</option>
-            <option>*</option>
+            <option>soma</option>
+            <option>subtração</option>
+            <option>divisão</option>
+            <option>multiplicação</option>
           </select>
         </div>
 
-        <div class="form-group mx-sm-3 mb-2">
+        <div class="form-group mx-sm-3 mb-4">
           <label for="inputNumero2" class="sr-only">Num 2</label>
-          <input type="number" class="form-control" id="inputNumero2" placeholder="Numero 2" formControlName="num2">
+          <input type="number" class="form-control" id="inputNumero2" placeholder="Numero 2" formControlName="valor2">
         </div>
 
-        <button type="submit" class="btn btn-primary mb-2" (click)="calcular()" >
+        <button type="submit" class="btn btn-primary mb-2" (click)="calcular()">
           Calcular e Salvar
         </button>
+
+        <!-- <div class="form-group mx-sm-3 mb-4">
+          <label for="outputResultado" class="sr-only">Resultado</label>
+          <input type="number" class="form-control" id="outputResultado" placeholder="Resultado" formControlName="resultado">
+        </div> -->
 
       </form>
     </div>
 
     <div class="col-md-4">
+
       <h6>Operações</h6>
-
-      <ul class="list-group">
-        <li class="list-group-item list-group-item-action">
-          <ul class="list-group list-group-horizontal ">
-            <li class="list-group-item">Num 1</li>
-            <li class="list-group-item">Operação</li>
-            <li class="list-group-item">Num 2</li>
-          </ul>
+      <ul class="list-group list-group-flush">
+        <li *ngFor="let item of calculosService.calculos" class="list-group-item">
+          <!-- <div class="row">
+            <div class="col-sm-3"> <p> {{ item.valor1 }} </p> </div>
+            <div class="col-sm-3"> <p> {{ item.operacao }} </p> </div>
+            <div class="col-sm-3"> <p> {{ item.valor2 }} </p> </div>
+            <div class="col-sm-3"> <p> {{ item.resultado }} </p> </div>
+          </div> -->
+          <p> v1 = {{ item.valor1 }} | op = {{ item.operacao }} |  v2 = {{ item.valor2 }} | Result = {{ item.resultado }} </p>
         </li>
-
-        <li *ngFor="let item of calculosService.calculos" 
-            class="list-group-item list-group-item-action">
-          <ul class="list-group list-group-horizontal ">
-            <li class="list-group-item"> {{ item.num1 }} </li>
-            <li class="list-group-item"> {{ item.operacao }} </li>
-            <li class="list-group-item"> {{ item.num2 }} </li>
-            <li class="list-group-item"> {{ item.resultado }} </li>
-          </ul>
-        </li>
-        
       </ul>
 
     </div>
