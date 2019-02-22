@@ -22,7 +22,20 @@ export class CalculadoraService {
   }
 
   postCalculo(Calculo: Calculadora){
-    // return this.http.post(this.URL_POST, Calculo);
-    console.log(Calculo)
+    console.log("Enviar")
+    return this.http.post(this.URL_POST, Calculo);
+    console.log("Enviado")
   }
+
+  // postCalculo(form) {
+
+  //   let body{
+  //     valor1: form.value.valor1,
+  //     valor2: form.value.valor2,
+  //     operacao: form.value.operacao,
+  //     resultado: form.value.resultado
+  //   }
+
+  //   return....post(body)
+  // }
 }

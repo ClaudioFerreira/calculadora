@@ -25,34 +25,29 @@ export class CalculadoraComponent implements OnInit {
 
   createForm() {
     this.formCalculo = this.formBuilder.group({
-      id: [""],
-      valor1: [],
-      valor2: [],
-      operacao: [""],
-      // resultado[]
+      numero1: [],
+      numero2: [],
+      operacao: [],
+      resultado: []
     });
   }
 
   calcular() {
-    let { valor1, valor2, operacao } = this.formCalculo.controls;
-    let resultado;
+    let { numero1, numero2, operacao } = this.formCalculo.controls;
+    let resultado: number;
 
     switch (operacao.value) {
       case "soma":
-        resultado = (valor1.value + valor2.value);
-        console.log(resultado);
+        resultado = (numero1.value + numero2.value);
         break;
       case "subtração":
-        resultado = (valor1.value - valor2.value);
-        console.log(resultado);
+        resultado = (numero1.value - numero2.value);
         break;
       case "divisão":
-        resultado = (valor1.value / valor2.value);
-        console.log(resultado);
+        resultado = (numero1.value / numero2.value);
         break;
       case "multiplicação":
-        resultado = (valor1.value * valor2.value);
-        console.log(resultado);
+        resultado = (numero1.value * numero2.value);
         break;
 
       default:
@@ -72,6 +67,7 @@ export class CalculadoraComponent implements OnInit {
 
   salvarCalculo(form: Calculadora) {
     this.calculosService.postCalculo(form);
+    this.getCalculos();
   }
 
 
