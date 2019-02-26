@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { FormGroup, FormBuilder, FormsModule } from '@angular/forms';
+import { FormGroup, FormBuilder, FormsModule, NgForm } from '@angular/forms';
 
 
 import { CalculadoraService } from '../services/calculadora.service';
@@ -65,9 +65,10 @@ export class CalculadoraComponent implements OnInit {
       })
   }
 
-  salvarCalculo(form: Calculadora) {
-    this.calculosService.postCalculo(form);
+  salvarCalculo(form: NgForm) {
+    this.calculosService.postCalculo(form.value);
     this.getCalculos();
+    console.log(form)
   }
 
 

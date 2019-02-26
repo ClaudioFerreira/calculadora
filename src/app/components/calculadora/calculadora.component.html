@@ -23,7 +23,9 @@
         <div class="form-group mx-sm-3 mb-4">
           <label for="inputNumero2" class="sr-only">Num 2</label>
           <input type="number" class="form-control" id="inputNumero2" placeholder="Numero 2" formControlName="numero2">
+          <!-- <p formControlName="resultado" [(ngModel)]="calculosService.resultado">Result = {{ resultado }} </p> -->
         </div>
+        
 
         <button type="submit" class="btn btn-primary mb-2" (click)="calcular()">
           Calcular e Salvar
@@ -31,10 +33,10 @@
         
       </form>
     </div>
-
+    
     <div class="col-md-4">
       
-
+      
       <h6>Operações</h6>
       <li *ngFor="let item of calculosService.calculos" class="list-group-item list-group-item-action">
         <ul class="list-group list-group-horizontal ">

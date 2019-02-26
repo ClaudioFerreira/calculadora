@@ -21,21 +21,13 @@ export class CalculadoraService {
     return this.http.get(this.URL_GET);
   }
 
-  postCalculo(Calculo: Calculadora){
-    console.log("Enviar")
-    return this.http.post(this.URL_POST, Calculo);
-    console.log("Enviado")
+  postCalculo(Calculo: Calculadora) {
+
+    return this.http.post(this.URL_POST, Calculo)
+      .subscribe(res => {
+        console.log(res);
+      });
+
   }
 
-  // postCalculo(form) {
-
-  //   let body{
-  //     valor1: form.value.valor1,
-  //     valor2: form.value.valor2,
-  //     operacao: form.value.operacao,
-  //     resultado: form.value.resultado
-  //   }
-
-  //   return....post(body)
-  // }
 }
