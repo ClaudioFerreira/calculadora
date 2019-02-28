@@ -40,9 +40,9 @@
       <h6>Operações</h6>
       <li *ngFor="let item of calculosService.calculos" class="list-group-item list-group-item-action">
         <ul class="list-group list-group-horizontal ">
-          <li class="list-group-item"> {{ item.numero1 }} </li>
+          <li class="list-group-item"> {{ item.valor1 }} </li>
           <li class="list-group-item"> {{ item.operacao }} </li>
-          <li class="list-group-item"> {{ item.numero2 }} </li>
+          <li class="list-group-item"> {{ item.valor2 }} </li>
           <li class="list-group-item">  = {{ item.resultado }} </li>
         </ul>
       </li>

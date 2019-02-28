@@ -33,21 +33,18 @@ export class CalculadoraComponent implements OnInit {
   }
 
   calcular() {
-    let { numero1, numero2, operacao } = this.formCalculo.controls;
-    let resultado: number;
-
-    switch (operacao.value) {
+    switch (this.formCalculo.value.operacao) {
       case "soma":
-        resultado = (numero1.value + numero2.value);
+        this.formCalculo.value.resultado = (this.formCalculo.value.numero1 + this.formCalculo.value.numero2);
         break;
       case "subtração":
-        resultado = (numero1.value - numero2.value);
+        this.formCalculo.value.resultado = (this.formCalculo.value.numero1 - this.formCalculo.value.numero2);
         break;
       case "divisão":
-        resultado = (numero1.value / numero2.value);
+        this.formCalculo.value.resultado = (this.formCalculo.value.numero1 / this.formCalculo.value.numero2);
         break;
       case "multiplicação":
-        resultado = (numero1.value * numero2.value);
+        this.formCalculo.value.resultado = (this.formCalculo.value.numero1 * this.formCalculo.value.numero2);
         break;
 
       default:
@@ -55,7 +52,7 @@ export class CalculadoraComponent implements OnInit {
         break;
     }
 
-    this.salvarCalculo(this.formCalculo.value);
+    this.salvarCalculo();
   }
 
   getCalculos() {
@@ -65,10 +62,11 @@ export class CalculadoraComponent implements OnInit {
       })
   }
 
-  salvarCalculo(form: NgForm) {
-    this.calculosService.postCalculo(form.value);
+  salvarCalculo() {
+    debugger
+    this.calculosService.postCalculo(this.formCalculo.value);
     this.getCalculos();
-    console.log(form)
+    console.log(this.formCalculo.value)
   }
 
 
